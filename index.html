@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <title>JavaScript Validering</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<!-- <script>
+    // Code from https://stackoverflow.com/a/29246176
+    function randomInteger(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
+    var numbers = []
+
+    while (numbers.length < 10) {
+        let tmp = randomInteger(0, 100)
+
+        if (!numbers.includes(tmp)) {
+            numbers.push(tmp)
+        }
+
+
+    }
+    // console.log(numbers)
+    // console.log(numbers.sort((a,b)=>a-b));
+
+
+    document.getElementById('unsorted').innerHTML = numbers;
+
+    var numbersSorted = numbers.sort((a, b) => a - b);
+
+    document.getElementById('sorted').innerHTML = numbersSorted;
+
+
+</script> -->
+
+<body>
+
+    <div id="rndNumber">
+        <script>
+            function rndNumber{
+                Math.random()
+            }
+        </script>
+    </div>
+
+    <div>
+        <fieldset>
+            <legend>
+                Registrera dig
+            </legend>
+
+            <div>
+                <div>
+                    <label for="First_Name">Förnamn:</label> <br>
+                    <input id="firstname" type="text" name="fname">
+                </div>
+
+                <div>
+                    <label for="Last_Name">Efternamn:</label> <br>
+                    <input id="lastname" type="text" name="fname">
+
+                    <br>
+
+                    <label for="email">E-mail</label>
+                    <input type="text" name="fname">
+                </div>
+
+                <br>
+
+                <div>
+                    <label for="Password"> Lösenord:</label>
+                    <input id="password1" type="password" name="fname">
+                </div>
+                <div>
+                    <label for="Password"> Upprepa Lösenord:</label>
+                    <input id="password2" type="password" name="fname">
+                </div>
+
+                <br>
+
+                <script>
+                    function submit(){         
+                    var firstname = document.getElementById("firstname").value
+                    console.log(firstname)
+
+                    if (firstname != "")
+                    {
+                    }
+                    else
+                    {
+                        alert("Skriv in ett förnamn")
+                    }
+                    }
+                </script>
+            </div>
+        </fieldset>
+    </div>
+
+    <div>
+        <fieldset>
+
+            <legend>
+                Utbildning
+            </legend>
+
+            <div>
+                <label for="School">Välj Skola</label><br>
+
+                <select name="School">
+
+                    <option value="Nti">Skola 1</option>
+                    <option value="Komvux">Skola 2</option>
+                    <option value="Södra Latin">Skola 3</option>
+                    <option value="Norra Real">Skola 4</option>
+
+                </select>
+
+                <br>
+                <label for="Birth_Date">Program </label><br>
+                <input type="text" name="fname">
+                <br>
+
+            </div>
+        </fieldset>
+    </div>
+    <button id="submit" type="submit" value="Submit" onclick="submit()">Submit</button>
+
+
+
+
+<div class="center">
+    <h3>Unsorted list of random numbers</h3>
+    <div id="unsorted">
+    </div>
+    <h3>Sorted list of random numbers</h3>
+    <div id="sorted">
+    </div>
+</div>
+</body>
+
+</html>
