@@ -39,10 +39,33 @@
 <body>
 
     <div id="rndNumber">
+
+        <p>Osorterade nummer</p>
+        <div id="unsorted"></div>
+
+        <p>Sorterade nummer</p>
+        <div id="sorted"></div>
+
         <script>
-            function rndNumber{
-                Math.random()
+            // Code from https://stackoverflow.com/a/29246176
+            function randomNumber(min, max) {
+                return Math.floor(Math.random() * (max - min + 1)) + min;
             }
+    
+            var rndNumbers = []
+    
+            while (rndNumbers.length < 10) {
+                let temp = randomNumber(0, 100)
+    
+                if (!rndNumbers.includes(temp)) {
+                    rndNumbers.push(temp)
+                }
+            }
+            document.getElementById('unsorted').innerHTML = rndNumbers;
+    
+            var numbersSorted = rndNumbers.sort((a, b) => a - b);
+    
+            document.getElementById('sorted').innerHTML = numbersSorted;
         </script>
     </div>
 
@@ -55,34 +78,53 @@
             <div>
                 <div>
                     <label for="First_Name">Förnamn:</label> <br>
-                    <input id="firstname" type="text" name="fname">
+                    <input id="firstname" type="text" name="firstname">
                 </div>
 
                 <div>
                     <label for="Last_Name">Efternamn:</label> <br>
-                    <input id="lastname" type="text" name="fname">
+                    <input id="lastname" type="text" name="lastname">
 
                     <br>
 
                     <label for="email">E-mail</label>
-                    <input type="text" name="fname">
+                    <input id="email" type="text" name="email">
                 </div>
 
                 <br>
 
                 <div>
                     <label for="Password"> Lösenord:</label>
-                    <input id="password1" type="password" name="fname">
+                    <input id="password1" type="password" name="password1">
                 </div>
                 <div>
                     <label for="Password"> Upprepa Lösenord:</label>
-                    <input id="password2" type="password" name="fname">
+                    <input id="password2" type="password" name="password2">
                 </div>
 
                 <br>
 
                 <script>
-                    function submit(){         
+                    //Code from https://www.w3resource.com/javascript/form/email-validation.php
+                    
+
+                    
+                    function ValidateEmail(){
+                    var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+                    var text = document.getElementById("email");
+
+                    if(text.value.match(mailformat))
+                    {
+                    }
+                    else
+                    {
+                    alert("Skriv in en giltig e-postadress");
+                    }
+                    }
+                </script>
+
+                <script>
+                    function Submit(){         
                     var firstname = document.getElementById("firstname").value
                     console.log(firstname)
 
@@ -93,6 +135,26 @@
                     {
                         alert("Skriv in ett förnamn")
                     }
+                    }
+                </script>
+
+                <script>
+                    function PasswordLenght(){
+                        var password = getElementById("password1").value
+
+                        if (password.length >= 6)
+                        {
+                        }
+                        else
+                        {
+                            alert("Lösenordet måste inehålla minst 6 tecken");
+                        }
+                    }
+                </script>
+                
+                <script>
+                    function PasswordMatch(){
+                        // Börja här nästa gång
                     }
                 </script>
             </div>
@@ -111,10 +173,10 @@
 
                 <select name="School">
 
-                    <option value="Nti">Skola 1</option>
-                    <option value="Komvux">Skola 2</option>
-                    <option value="Södra Latin">Skola 3</option>
-                    <option value="Norra Real">Skola 4</option>
+                    <option value="NTI Södertörn">NTI Södertörn</option>
+                    <option value="NTI Odenplan">NTI Odenplan</option>
+                    <option vXalue="Södra Latin">Södra Latin</option>
+                    <option value="Norra Real">Norra Real</option>
 
                 </select>
 
@@ -126,19 +188,7 @@
             </div>
         </fieldset>
     </div>
-    <button id="submit" type="submit" value="Submit" onclick="submit()">Submit</button>
-
-
-
-
-<div class="center">
-    <h3>Unsorted list of random numbers</h3>
-    <div id="unsorted">
-    </div>
-    <h3>Sorted list of random numbers</h3>
-    <div id="sorted">
-    </div>
-</div>
+    <button id="submit" type="submit" value="Submit" onclick="console.log('Henke är fet');Submit(); ValidateEmail(); PasswordLenght()">Submit</button>
 </body>
 
 </html>
